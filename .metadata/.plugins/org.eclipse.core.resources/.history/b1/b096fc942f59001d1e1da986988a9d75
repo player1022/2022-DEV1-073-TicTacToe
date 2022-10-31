@@ -1,0 +1,34 @@
+
+public class GamingConsole {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to tic tac toe game");
+		
+		playGame();
+		char [][] tictac = new char[3][3];
+		printGrid(tictac);
+}
+	
+	private static void playGame()
+	{
+		System.out.println("Only two players are allowed in the game");
+		System.out.println("You should enter your name as Player1 or Player2");
+		System.out.println("Only two symbols are allowed in the game X and O");
+		System.out.println("The first player will get X");
+		System.out.println("Given below is the grid pattern of the game and it will be changed accordingly as you enter the values");
+	}
+
+	private static void printGrid(char[][] tictac)
+		{
+		System.out.println(tictac[0][0]+"|"+tictac[0][1]+"|"+tictac[0][2]);
+		System.out.println("--"+"--"+"-");
+		System.out.println(tictac[1][0]+"|"+tictac[1][1]+"|"+tictac[1][2]);
+		System.out.println("--"+"--"+"-");
+		System.out.println(tictac[2][0]+"|"+tictac[2][1]+"|"+tictac[2][2]);
+		System.out.println("--"+"--"+"-");
+	
+		}
+		
+	}
+
+}
