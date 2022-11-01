@@ -16,8 +16,8 @@ public class TicTacGameWithComputer {
 		Scanner scanner = new Scanner(System.in);
 
 		char[][] tictac = { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
-		System.out.println("This is how the grid looks like:");
-		GameHelper.printGrid(tictac);
+		/*System.out.println("This is how the grid looks like:");
+		GameHelper.printGrid(tictac);*/
 
 		while (true) {
 			player1Turn(tictac, scanner, name);
@@ -69,7 +69,7 @@ public class TicTacGameWithComputer {
 
 		if (GameHelper.whoWon(tictac, 'X')) {
 			GameHelper.printGrid(tictac);
-			System.out.println(name + " " + "You win!");
+			System.out.println(name + " " + "you win!");
 			return true;
 		}
 

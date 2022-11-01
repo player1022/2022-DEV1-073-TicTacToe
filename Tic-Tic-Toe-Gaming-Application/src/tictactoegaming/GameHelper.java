@@ -1,6 +1,16 @@
 package tictactoegaming;
 
 public class GameHelper {
+	
+	public static void displayGrid(char[][] tictac) {
+		System.out.println(tictac[0][0] + "|" + tictac[0][1] + "|" + tictac[0][2]);
+		System.out.println("--" + "--" + "-");
+		System.out.println(tictac[1][0] + "|" + tictac[1][1] + "|" + tictac[1][2]);
+		System.out.println("--" + "--" + "-");
+		System.out.println(tictac[2][0] + "|" + tictac[2][1] + "|" + tictac[2][2]);
+		System.out.println("--" + "--" + "-");
+
+	}
 
 	public static void printGrid(char[][] tictac) {
 		System.out.println(tictac[0][0] + "|" + tictac[0][1] + "|" + tictac[0][2]);
@@ -45,7 +55,7 @@ public class GameHelper {
 			System.out.println(":(");
 		}
 	}
-	
+
 	public static boolean isValidPosition(char[][] tictac, String position) {
 		switch (position) {
 		case "1":
@@ -70,7 +80,7 @@ public class GameHelper {
 			return false;
 		}
 	}
-	
+
 	public static boolean whoWon(char[][] tictac, char symbol) {
 		if ((tictac[0][0] == symbol && tictac[0][1] == symbol && tictac[0][2] == symbol)
 				|| (tictac[1][0] == symbol && tictac[1][1] == symbol && tictac[1][2] == symbol)
@@ -86,5 +96,4 @@ public class GameHelper {
 		}
 		return false;
 	}
-
 }

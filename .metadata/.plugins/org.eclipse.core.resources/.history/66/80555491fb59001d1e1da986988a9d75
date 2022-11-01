@@ -1,0 +1,38 @@
+package tictactoegaming;
+
+import java.util.Scanner;
+
+public class GameRunner {
+
+	public static void main(String[] args) {
+
+		System.out.println("Welcome to Tic Tac Toe");
+		gameRules();
+		System.out.println("Choose who you want to play with? computer or another player");
+		Scanner sc = new Scanner(System.in);
+		String choice = sc.nextLine();
+
+		if (!choice.isEmpty() && choice.trim().length() > 0 && choice.equalsIgnoreCase("computer")) {
+			TicTacGameWithComputer.playGameWithComputer();
+		} 
+		else if (!choice.isEmpty() && choice.trim().length() > 0 && choice.equalsIgnoreCase("player")) {
+			TicTacGameWithPlayer.playGameWithPlayer();
+		}
+		else {
+			System.out.println("Not a valid name, Please try again with Computer or Player");
+			System.exit(0);
+		}
+		sc.close();
+	}
+	private static void gameRules() {
+
+		System.out.println("Only two players are allowed in the game");
+		System.out.println("You can choose to either play against the computer or another player");
+		System.out.println("Only two symbols will be there in the game X and O");
+		System.out.println("The first player will always assigned X");
+		
+		char[][] tictac = { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
+		System.out.println("This is how the grid looks like:");
+		GameHelper.displayGrid(tictac);
+	}
+}

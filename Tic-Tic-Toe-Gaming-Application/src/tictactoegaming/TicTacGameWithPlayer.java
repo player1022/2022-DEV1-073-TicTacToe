@@ -6,39 +6,44 @@ public class TicTacGameWithPlayer {
 
 	public static void playGameWithPlayer() {
 
-		System.out.println("You will play with another User");
+		System.out.println("You will play with another player");
 		
-		System.out.println("Enter your name");
+		System.out.println("Enter your name player1");
 		Scanner sc = new Scanner(System.in);
-		String name = sc.nextLine();
+		String player1Name = sc.nextLine();
+		
+		System.out.println("Enter your name player2");
+		Scanner sc1 = new Scanner(System.in);
+		String player2Name = sc1.nextLine();
 
 		Scanner scanner = new Scanner(System.in);
 
 		char[][] tictac = { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
-		System.out.println("This is how the grid looks like:");
-		GameHelper.printGrid(tictac);
+		/*System.out.println("This is how the grid looks like:");
+		GameHelper.printGrid(tictac);*/
 
 		while (true) {
-			player1Turn(tictac, scanner,name);
-			if (isGameFinished(tictac,name)) {
+			player1Turn(tictac, scanner,player1Name);
+			if (isGameFinished(tictac,player1Name,player2Name)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
 
-			player2Turn(tictac, scanner);
-			if (isGameFinished(tictac,name)) {
+			player2Turn(tictac, scanner,player2Name);
+			if (isGameFinished(tictac,player1Name,player2Name)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
 		}
 		sc.close();
+		sc1.close();
 		scanner.close();
 	}
 
-	private static void player1Turn(char[][] board, Scanner scanner,String name) {
+	private static void player1Turn(char[][] board, Scanner scanner,String player1Name) {
 		String userInput;
 		while (true) {
-			System.out.println("Where would you like to play? (1-9)" +" "+name);
+			System.out.println("Where would you like to play" +" "+player1Name+"(1-9)?");
 			userInput = scanner.nextLine();
 			if (GameHelper.isValidPosition(board, userInput)) {
 				break;
@@ -49,13 +54,13 @@ public class TicTacGameWithPlayer {
 		GameHelper.placeSymbol(board, userInput, 'X');
 	}
 
-	private static void player2Turn(char[][] tictac, Scanner scanner) {
+	private static void player2Turn(char[][] tictac, Scanner scanner,String player2Name) {
 
 		String userInput;
 		while (true) {
-			System.out.println("Where would you like to play player2? (1-9)");
+			System.out.println("Where would you like to play"+player2Name +" (1-9)?");
 			userInput = scanner.nextLine();
-			System.out.println("Player2 chose " + userInput);
+			System.out.println(player2Name+" "+"chose " + userInput);
 			if (GameHelper.isValidPosition(tictac, userInput)) {
 				break;
 			}
@@ -67,17 +72,17 @@ public class TicTacGameWithPlayer {
 		GameHelper.placeSymbol(tictac, userInput, 'O');
 	}
 	
-	public static boolean isGameFinished(char[][] tictac, String name) {
+	public static boolean isGameFinished(char[][] tictac,String player1Name,String player2Name) {
 
 		if (GameHelper.whoWon(tictac, 'X')) {
 			GameHelper.printGrid(tictac);
-			System.out.println(name+" "+"You win!");
+			System.out.println(player1Name+" "+"you win!");
 			return true;
 		}
 
 		if (GameHelper.whoWon(tictac, 'O')) {
 			GameHelper.printGrid(tictac);
-			System.out.println("Player2 wins!");
+			System.out.println(player2Name+" "+"Player2 wins!");
 			return true;
 		}
 
