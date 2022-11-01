@@ -2,10 +2,7 @@ package tictactoegaming;
 
 public class TicTacGame {
 	
-	public static void playgame() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	public static void printGrid(char[][] tictac)
 		{
@@ -111,8 +108,6 @@ public class TicTacGame {
 	{
 		return false;
 	}
-
-	
 		
 }
 

@@ -30,7 +30,8 @@ public class GamingConsole {
 			String player1Input = sc.nextLine();
 			if (!player1Input.isEmpty() && player1Input.trim().length() > 0 && player1Input.equals("X")
 					|| player1Input.equals("x")) {
-				TicTacGame.playgame();
+				char[][] tictac = new char[3][3];
+				TicTacGame.printGrid(tictac);
 
 			} else {
 				System.out.println("You have to play with only X ! try again with X");
