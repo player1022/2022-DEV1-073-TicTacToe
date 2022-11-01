@@ -15,13 +15,13 @@ public class TicTacGameWithPlayer {
 
 		while (true) {
 			player1Turn(tictac, scanner);
-			if (isGameFinished(tictac)) {
+			if (GameHelper.isGameFinished(tictac)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
 
 			player2Turn(tictac, scanner);
-			if (isGameFinished(tictac)) {
+			if (GameHelper.isGameFinished(tictac)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
@@ -49,16 +49,11 @@ public class TicTacGameWithPlayer {
 		while (true) {
 			System.out.println("Where would you like to play player2? (1-9)");
 			userInput = scanner.nextLine();
-			System.out.println("Player2 chose " + userInput);
 			if (GameHelper.isValidPosition(tictac, userInput)) {
 				break;
 			}
-			else 
-			{
-				System.out.println(userInput + " is not a valid move.");
-			}
 		}
-		
+		System.out.println("Player2 chose " + userInput);
 		GameHelper.placeSymbol(tictac, userInput, 'O');
 
 	}
@@ -73,7 +68,7 @@ public class TicTacGameWithPlayer {
 
 		if (GameHelper.whoWon(tictac, 'O')) {
 			GameHelper.printGrid(tictac);
-			System.out.println("Player2 wins!");
+			System.out.println("Computer wins!");
 			return true;
 		}
 

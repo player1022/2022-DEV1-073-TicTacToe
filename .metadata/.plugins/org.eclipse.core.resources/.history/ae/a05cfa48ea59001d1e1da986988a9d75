@@ -14,11 +14,11 @@ public class GamingConsole {
 		
 		if(!choice.isEmpty() && choice.trim().length()>0 && choice.equals("computer"))
 			{
-				TicTacGameWithComputer.playGameWithComputer();
+				TicTacGameWithComputer.playGame();
 			}
 		else
 			{
-				TicTacGameWithPlayer.playGameWithPlayer();
+				TicTacGameWithPlayer.playGameWithPlayer2();
 			}
 			sc.close();
 	}

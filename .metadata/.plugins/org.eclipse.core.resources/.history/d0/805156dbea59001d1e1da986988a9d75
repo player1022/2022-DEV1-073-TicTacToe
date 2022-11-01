@@ -1,0 +1,14 @@
+package tictactoegaming;
+
+public class GameHelper {
+	public static void printGrid(char[][] tictac) {
+		System.out.println(tictac[0][0] + "|" + tictac[0][1] + "|" + tictac[0][2]);
+		System.out.println("--" + "--" + "-");
+		System.out.println(tictac[1][0] + "|" + tictac[1][1] + "|" + tictac[1][2]);
+		System.out.println("--" + "--" + "-");
+		System.out.println(tictac[2][0] + "|" + tictac[2][1] + "|" + tictac[2][2]);
+		System.out.println("--" + "--" + "-");
+
+	}
+
+}

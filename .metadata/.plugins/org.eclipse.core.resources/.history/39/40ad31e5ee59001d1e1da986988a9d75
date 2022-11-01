@@ -53,10 +53,6 @@ public class TicTacGameWithPlayer {
 			if (GameHelper.isValidPosition(tictac, userInput)) {
 				break;
 			}
-			else 
-			{
-				System.out.println(userInput + " is not a valid move.");
-			}
 		}
 		
 		GameHelper.placeSymbol(tictac, userInput, 'O');

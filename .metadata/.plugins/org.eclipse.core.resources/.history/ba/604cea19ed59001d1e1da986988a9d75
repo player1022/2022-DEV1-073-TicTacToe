@@ -18,7 +18,7 @@ public class GamingConsole {
 			}
 		else
 			{
-				TicTacGameWithPlayer.playGameWithPlayer();
+				TicTacGameWithPlayer.playGameWithPlayer2();
 			}
 			sc.close();
 	}

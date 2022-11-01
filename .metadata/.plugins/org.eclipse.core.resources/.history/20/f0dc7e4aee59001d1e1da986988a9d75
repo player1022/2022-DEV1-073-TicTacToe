@@ -15,13 +15,13 @@ public class TicTacGameWithPlayer {
 
 		while (true) {
 			player1Turn(tictac, scanner);
-			if (isGameFinished(tictac)) {
+			if (GameHelper.isGameFinished(tictac)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
 
 			player2Turn(tictac, scanner);
-			if (isGameFinished(tictac)) {
+			if (GameHelper.isGameFinished(tictac)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
@@ -49,44 +49,13 @@ public class TicTacGameWithPlayer {
 		while (true) {
 			System.out.println("Where would you like to play player2? (1-9)");
 			userInput = scanner.nextLine();
-			System.out.println("Player2 chose " + userInput);
 			if (GameHelper.isValidPosition(tictac, userInput)) {
 				break;
 			}
-			else 
-			{
-				System.out.println(userInput + " is not a valid move.");
-			}
 		}
-		
+		System.out.println("Player2 chose " + userInput);
 		GameHelper.placeSymbol(tictac, userInput, 'O');
 
-	}
-	
-	public static boolean isGameFinished(char[][] tictac) {
-
-		if (GameHelper.whoWon(tictac, 'X')) {
-			GameHelper.printGrid(tictac);
-			System.out.println("You win!");
-			return true;
-		}
-
-		if (GameHelper.whoWon(tictac, 'O')) {
-			GameHelper.printGrid(tictac);
-			System.out.println("Player2 wins!");
-			return true;
-		}
-
-		for (int i = 0; i < tictac.length; i++) {
-			for (int j = 0; j < tictac[i].length; j++) {
-				if (tictac[i][j] == ' ') {
-					return false;
-				}
-			}
-		}
-		GameHelper.printGrid(tictac);
-		System.out.println("The game ended in a tie!");
-		return true;
 	}
 
 }

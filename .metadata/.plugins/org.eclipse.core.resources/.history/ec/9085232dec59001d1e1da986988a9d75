@@ -17,13 +17,13 @@ public class TicTacGameWithComputer {
 
 		while (true) {
 			player1Turn(tictac, scanner);
-			if (isGameFinished(tictac)) {
+			if (GameHelper.isGameFinished(tictac)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
 
 			computerTurn(tictac);
-			if (isGameFinished(tictac)) {
+			if (GameHelper.isGameFinished(tictac)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
@@ -31,58 +31,38 @@ public class TicTacGameWithComputer {
 		scanner.close();
 	}
 
-	private static void player1Turn(char[][] tictac, Scanner scanner) {
+	private static void player1Turn(char[][] board, Scanner scanner) {
 		String userInput;
 		while (true) {
 
 			System.out.println("Where would you like to play? (1-9)");
 			userInput = scanner.nextLine();
-			if (GameHelper.isValidPosition(tictac, userInput)) {
+			if (GameHelper.isValidPosition(board, userInput)) {
 				break;
 			} else {
 				System.out.println(userInput + " is not a valid move.");
 			}
 		}
-		GameHelper.placeSymbol(tictac, userInput, 'X');
+		GameHelper.placeSymbol(board, userInput, 'X');
 	}
 
-	private static void computerTurn(char[][] tictac) {
+	
+
+	
+
+	
+
+	private static void computerTurn(char[][] board) {
 		Random rand = new Random();
 		int computerMove;
 		while (true) {
 			computerMove = rand.nextInt(9) + 1;
-			if (GameHelper.isValidPosition(tictac, Integer.toString(computerMove))) {
+			if (GameHelper.isValidPosition(board, Integer.toString(computerMove))) {
 				break;
 			}
 		}
 		System.out.println("Computer chose " + computerMove);
-		GameHelper.placeSymbol(tictac, Integer.toString(computerMove), 'O');
-	}
-
-	public static boolean isGameFinished(char[][] tictac) {
-
-		if (GameHelper.whoWon(tictac, 'X')) {
-			GameHelper.printGrid(tictac);
-			System.out.println("You win!");
-			return true;
-		}
-
-		if (GameHelper.whoWon(tictac, 'O')) {
-			GameHelper.printGrid(tictac);
-			System.out.println("Computer wins!");
-			return true;
-		}
-
-		for (int i = 0; i < tictac.length; i++) {
-			for (int j = 0; j < tictac[i].length; j++) {
-				if (tictac[i][j] == ' ') {
-					return false;
-				}
-			}
-		}
-		GameHelper.printGrid(tictac);
-		System.out.println("The game ended in a tie!");
-		return true;
+		GameHelper.placeSymbol(board, Integer.toString(computerMove), 'O');
 	}
 
 }
