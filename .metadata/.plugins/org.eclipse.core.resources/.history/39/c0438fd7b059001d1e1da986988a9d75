@@ -1,0 +1,40 @@
+package tictactoegaming;
+
+import java.util.Scanner;
+
+public class GamingConsole {
+
+	public static void main(String[] args) {
+
+		System.out.println("Welcome to tic tac toe game");
+		TicTacGame.playGame();
+		Scanner sc = new Scanner(System.in);
+
+		gameRules();
+		
+		String name = sc.nextLine();
+		String player1Input = sc.nextLine();
+
+		if (!name.isEmpty() && name.trim().equalsIgnoreCase("player1")) {
+			if (!player1Input.isEmpty() && player1Input.trim().length() > 0 && player1Input.equals("X")
+					|| player1Input.equals("x")) {
+
+				char[][] tictac = new char[3][3];
+				TicTacGame.printGrid(tictac);
+			} else
+				System.out.println("player1 has to choose X");
+
+		}
+
+	}
+
+	private static void gameRules() {
+
+		System.out.println("Only two players are allowed in the game");
+		System.out.println("You should enter your name as Player1 or Player2");
+		System.out.println("Only two symbols are allowed in the game X and O");
+		System.out.println("The first player will get X");
+		System.out.println("Given below is the grid pattern of the game and it will be changed accordingly as you enter the values");
+		
+	}
+}

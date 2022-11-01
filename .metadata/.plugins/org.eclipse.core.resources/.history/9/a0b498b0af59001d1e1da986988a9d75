@@ -1,0 +1,21 @@
+package tictactoegaming;
+
+import java.util.Scanner;
+
+public class GamingConsole {
+
+	public static void main(String[] args) {
+		System.out.println("Welcome to tic tac toe game");
+		Scanner sc = new Scanner(System.in);
+		
+		String player1Input = sc.nextLine();
+		
+		if(!player1Input.isEmpty() && player1Input.trim().length()>0 && player1Input.equals("X")||player1Input.equals("x"))
+		
+		TicTacGame.playGame();
+		char [][] tictac = new char[3][3];
+		TicTacGame.printGrid(tictac);
+}
+}
+	
+	
