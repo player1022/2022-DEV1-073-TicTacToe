@@ -1,0 +1,16 @@
+package tictactoegaming;
+
+import java.util.Scanner;
+
+public class GamingConsole {
+
+	public static void main(String[] args) {
+
+		System.out.println("Welcome to tic tac toe game");
+		
+		
+	}
+	
+	
+	
+}

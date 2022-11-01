@@ -6,41 +6,29 @@ public class GamingConsole {
 
 	public static void main(String[] args) {
 
-		System.out.println("Welcome to tic tac toe game");
+		System.out.println("Welcome to the Tic Tac Toe game");
 		gameRules();
-		validateUser();
+		System.out.println("choose who you want to play with? computer or user");
+		Scanner sc= new Scanner(System.in);
+		String choice = sc.nextLine();
+		
+		if(!choice.isEmpty() && choice.trim().length()>0 && choice.equals("computer"))
+			{
+				TicTacGameWithComputer.playGame();
+			}
+		else
+			{
+				TicTacGameWithPlayer.playGameWithPlayer2();
+			}
+			sc.close();
 	}
 
 	private static void gameRules() {
+
 		System.out.println("Only two players are allowed in the game");
-		System.out.println("You should enter your name as Player1 or Player2");
-		System.out.println("Only two symbols are allowed in the game X and O");
-		System.out.println("The first player will get X");
-
-	}
-
-	private static void validateUser() {
-
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter your name");
-		String name = sc.nextLine();
-		if (!name.isEmpty() && name.trim().equalsIgnoreCase("player1")) {
-
-			System.out.println("Enter your character");
-			String player1Input = sc.nextLine();
-			if (!player1Input.isEmpty() && player1Input.trim().length() > 0 && player1Input.equals("X")
-					|| player1Input.equals("x")) {
-				TicTacGame.playgame();
-
-			} else {
-				System.out.println("You have to play with only X ! try again with X");
-				System.exit(0);
-			}
-
-		} else {
-			System.out.println("sorry you cannot play");
-			System.exit(0);
-		}
+		System.out.println("You can choose to either play against the computer or another user");
+		System.out.println("Only two symbols will be there in the game X and O");
+		System.out.println("The first player will always get X");
 
 	}
 }

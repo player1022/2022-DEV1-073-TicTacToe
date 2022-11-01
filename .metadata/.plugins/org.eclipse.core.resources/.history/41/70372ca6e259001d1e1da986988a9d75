@@ -1,0 +1,21 @@
+package tictactoegaming;
+
+public class GamingConsole {
+
+	public static void main(String[] args) {
+
+		System.out.println("Welcome to the Tic Tac Toe game");
+		gameRules();
+		System.out.println("choose who you want to play with? computer or another user");
+		TicTacGameWithComputer.playGameWithComputer();
+		//TicTacGameWithPlayer.playGameWithPlayer2();
+	}
+
+	private static void gameRules() {
+
+		System.out.println("Only two players are allowed in the game");
+		System.out.println("Only two symbols will be there in the game X and O");
+		System.out.println("The first player will always get X");
+
+	}
+}

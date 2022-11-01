@@ -1,0 +1,10 @@
+package tictactoegaming;
+
+import java.util.Scanner;
+
+public class GamingConsole {
+
+	public static void main(String[] args) {
+
+	}
+}
