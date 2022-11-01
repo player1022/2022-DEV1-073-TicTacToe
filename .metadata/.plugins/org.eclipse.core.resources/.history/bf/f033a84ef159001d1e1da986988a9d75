@@ -1,13 +1,12 @@
 package tictactoegaming;
 
-import java.util.Random;
 import java.util.Scanner;
 
-public class TicTacGameWithComputer {
+public class TicTacGameWithPlayer {
 
-	public static void playGameWithComputer() {
+	public static void playGameWithPlayer() {
 
-		System.out.println("You will play with the Computer");
+		System.out.println("You will play with another User");
 		
 		System.out.println("Enter your name");
 		Scanner sc = new Scanner(System.in);
@@ -20,62 +19,67 @@ public class TicTacGameWithComputer {
 		GameHelper.printGrid(tictac);
 
 		while (true) {
-			player1Turn(tictac, scanner, name);
-			if (isGameFinished(tictac, name)) {
+			player1Turn(tictac, scanner);
+			if (isGameFinished(tictac)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
 
-			computerTurn(tictac);
-			if (isGameFinished(tictac, name)) {
+			player2Turn(tictac, scanner);
+			if (isGameFinished(tictac)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
 		}
-		scanner.close();
 		sc.close();
+		scanner.close();
 	}
 
-	private static void player1Turn(char[][] tictac, Scanner scanner, String name) {
-
+	private static void player1Turn(char[][] board, Scanner scanner) {
 		String userInput;
 		while (true) {
-
-			System.out.println("Where would you like to play? (1-9)" + " " + name);
+			System.out.println("Where would you like to play? (1-9)");
 			userInput = scanner.nextLine();
-			if (GameHelper.isValidPosition(tictac, userInput)) {
+			if (GameHelper.isValidPosition(board, userInput)) {
 				break;
 			} else {
 				System.out.println(userInput + " is not a valid move.");
 			}
 		}
-		GameHelper.placeSymbol(tictac, userInput, 'X');
+		GameHelper.placeSymbol(board, userInput, 'X');
 	}
 
-	private static void computerTurn(char[][] tictac) {
-		Random rand = new Random();
-		int computerMove;
+	private static void player2Turn(char[][] tictac, Scanner scanner) {
+
+		String userInput;
 		while (true) {
-			computerMove = rand.nextInt(9) + 1;
-			if (GameHelper.isValidPosition(tictac, Integer.toString(computerMove))) {
+			System.out.println("Where would you like to play player2? (1-9)");
+			userInput = scanner.nextLine();
+			System.out.println("Player2 chose " + userInput);
+			if (GameHelper.isValidPosition(tictac, userInput)) {
 				break;
 			}
+			else 
+			{
+				System.out.println(userInput + " is not a valid move.");
+			}
 		}
-		System.out.println("Computer chose " + computerMove);
-		GameHelper.placeSymbol(tictac, Integer.toString(computerMove), 'O');
-	}
+		
+		GameHelper.placeSymbol(tictac, userInput, 'O');
 
-	public static boolean isGameFinished(char[][] tictac, String name) {
+	}
+	
+	public static boolean isGameFinished(char[][] tictac) {
 
 		if (GameHelper.whoWon(tictac, 'X')) {
 			GameHelper.printGrid(tictac);
-			System.out.println(name + " " + "You win!");
+			System.out.println("You win!");
 			return true;
 		}
 
 		if (GameHelper.whoWon(tictac, 'O')) {
 			GameHelper.printGrid(tictac);
-			System.out.println("Computer wins!");
+			System.out.println("Player2 wins!");
 			return true;
 		}
 

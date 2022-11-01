@@ -7,12 +7,12 @@ public class TicTacGameWithComputer {
 
 	public static void playGameWithComputer() {
 
-		System.out.println("You will play with the Computer");
 		
-		System.out.println("Enter your name");
+		System.out.println("You will play with the Computer");
+		System.out.println("enter your name");
 		Scanner sc = new Scanner(System.in);
 		String name = sc.nextLine();
-
+		
 		Scanner scanner = new Scanner(System.in);
 
 		char[][] tictac = { { ' ', ' ', ' ' }, { ' ', ' ', ' ' }, { ' ', ' ', ' ' } };
@@ -20,14 +20,14 @@ public class TicTacGameWithComputer {
 		GameHelper.printGrid(tictac);
 
 		while (true) {
-			player1Turn(tictac, scanner, name);
-			if (isGameFinished(tictac, name)) {
+			player1Turn(tictac, scanner,name);
+			if (isGameFinished(tictac,name)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
 
 			computerTurn(tictac);
-			if (isGameFinished(tictac, name)) {
+			if (isGameFinished(tictac,name)) {
 				break;
 			}
 			GameHelper.printGrid(tictac);
@@ -36,12 +36,12 @@ public class TicTacGameWithComputer {
 		sc.close();
 	}
 
-	private static void player1Turn(char[][] tictac, Scanner scanner, String name) {
-
+	private static void player1Turn(char[][] tictac, Scanner scanner,String name) {
+		
 		String userInput;
 		while (true) {
 
-			System.out.println("Where would you like to play? (1-9)" + " " + name);
+			System.out.println("Where would you like to play? (1-9)"+ " "+name);
 			userInput = scanner.nextLine();
 			if (GameHelper.isValidPosition(tictac, userInput)) {
 				break;
@@ -50,6 +50,7 @@ public class TicTacGameWithComputer {
 			}
 		}
 		GameHelper.placeSymbol(tictac, userInput, 'X');
+		
 	}
 
 	private static void computerTurn(char[][] tictac) {
@@ -69,7 +70,7 @@ public class TicTacGameWithComputer {
 
 		if (GameHelper.whoWon(tictac, 'X')) {
 			GameHelper.printGrid(tictac);
-			System.out.println(name + " " + "You win!");
+			System.out.println(name+" "+"You win!");
 			return true;
 		}
 
