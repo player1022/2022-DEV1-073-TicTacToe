@@ -1,0 +1,21 @@
+package com.gaming.tictactoe.service;
+
+import com.gaming.tictactoe.TicTacGameWithComputer;
+import com.gaming.tictactoe.TicTacGameWithPlayer;
+
+public class GamingService {
+
+	public void validate(String choice)
+	{
+		if (!choice.isEmpty() && choice.trim().length() > 0 && choice.equalsIgnoreCase("computer")) {
+			TicTacGameWithComputer.playGameWithComputer();
+		} 
+		else if (!choice.isEmpty() && choice.trim().length() > 0 && choice.equalsIgnoreCase("player")) {
+			TicTacGameWithPlayer.playGameWithPlayer();
+		}
+		else {
+			System.out.println("Not a valid name, Please try again with Computer or Player");
+			System.exit(0);
+		}
+	}
+}

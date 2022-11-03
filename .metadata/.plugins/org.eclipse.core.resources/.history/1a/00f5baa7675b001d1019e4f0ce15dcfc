@@ -1,0 +1,5 @@
+package com.gaming.tictactoe.service;
+
+public class GamingService {
+
+}

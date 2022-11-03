@@ -1,0 +1,101 @@
+package com.gaming.tictactoe.utility;
+
+public class GamingUtilityHelper {
+	
+	public static void displayGrid(char[][] tictac) {
+		System.out.println(tictac[0][0] + "|" + tictac[0][1] + "|" + tictac[0][2]);
+		System.out.println("--" + "--" + "-");
+		System.out.println(tictac[1][0] + "|" + tictac[1][1] + "|" + tictac[1][2]);
+		System.out.println("--" + "--" + "-");
+		System.out.println(tictac[2][0] + "|" + tictac[2][1] + "|" + tictac[2][2]);
+		System.out.println("--" + "--" + "-");
+
+	}
+
+	public static void printGrid(char[][] tictac) {
+		System.out.println(tictac[0][0] + "|" + tictac[0][1] + "|" + tictac[0][2]);
+		System.out.println("--" + "--" + "-");
+		System.out.println(tictac[1][0] + "|" + tictac[1][1] + "|" + tictac[1][2]);
+		System.out.println("--" + "--" + "-");
+		System.out.println(tictac[2][0] + "|" + tictac[2][1] + "|" + tictac[2][2]);
+		System.out.println("--" + "--" + "-");
+
+	}
+
+	//utility method for placing the symbol on the board
+	public static void placeSymbol(char[][] tictac, String position, char symbol) {
+		switch (position) {
+		case "1":
+			tictac[0][0] = symbol;
+			break;
+		case "2":
+			tictac[0][1] = symbol;
+			break;
+		case "3":
+			tictac[0][2] = symbol;
+			break;
+		case "4":
+			tictac[1][0] = symbol;
+			break;
+		case "5":
+			tictac[1][1] = symbol;
+			break;
+		case "6":
+			tictac[1][2] = symbol;
+			break;
+		case "7":
+			tictac[2][0] = symbol;
+			break;
+		case "8":
+			tictac[2][1] = symbol;
+			break;
+		case "9":
+			tictac[2][2] = symbol;
+			break;
+		default:
+			System.out.println(":(");
+		}
+	}
+
+	public static boolean isValidPosition(char[][] tictac, String position) {
+		switch (position) {
+		case "1":
+			return (tictac[0][0] == ' ');
+		case "2":
+			return (tictac[0][1] == ' ');
+		case "3":
+			return (tictac[0][2] == ' ');
+		case "4":
+			return (tictac[1][0] == ' ');
+		case "5":
+			return (tictac[1][1] == ' ');
+		case "6":
+			return (tictac[1][2] == ' ');
+		case "7":
+			return (tictac[2][0] == ' ');
+		case "8":
+			return (tictac[2][1] == ' ');
+		case "9":
+			return (tictac[2][2] == ' ');
+		default:
+			return false;
+		}
+	}
+
+	public static boolean whoWon(char[][] tictac, char symbol) {
+		if ((tictac[0][0] == symbol && tictac[0][1] == symbol && tictac[0][2] == symbol)
+				|| (tictac[1][0] == symbol && tictac[1][1] == symbol && tictac[1][2] == symbol)
+				|| (tictac[2][0] == symbol && tictac[2][1] == symbol && tictac[2][2] == symbol) ||
+
+		(tictac[0][0] == symbol && tictac[1][0] == symbol && tictac[2][0] == symbol)
+				|| (tictac[0][1] == symbol && tictac[1][1] == symbol && tictac[2][1] == symbol)
+				|| (tictac[0][2] == symbol && tictac[1][2] == symbol && tictac[2][2] == symbol) ||
+
+		(tictac[0][0] == symbol && tictac[1][1] == symbol && tictac[2][2] == symbol)
+				|| (tictac[0][2] == symbol && tictac[1][1] == symbol && tictac[2][0] == symbol)) {
+			return true;
+		}
+		return false;
+	}
+
+}

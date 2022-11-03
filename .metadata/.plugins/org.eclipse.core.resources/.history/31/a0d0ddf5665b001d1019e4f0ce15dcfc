@@ -1,0 +1,10 @@
+package com.gaming.tictactoe;
+
+public class GamingApplicationRunner {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
