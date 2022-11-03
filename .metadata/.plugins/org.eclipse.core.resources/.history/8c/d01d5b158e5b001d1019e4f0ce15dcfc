@@ -52,7 +52,7 @@ public class TicTacToeGameWithPlayer {
 		}
 		GamingUtilityHelper.placeSymbol(board, userInput, 'X');
 	}
-	//2nd player moves
+
 	private void player2Turn(char[][] tictac, Scanner scanner,String player2Name) {
 
 		String userInput;
@@ -70,7 +70,7 @@ public class TicTacToeGameWithPlayer {
 		}
 		GamingUtilityHelper.placeSymbol(tictac, userInput, 'O');
 	}
-	// if game is finished
+	
 	private boolean isGameFinished(char[][] tictac,String player1Name,String player2Name) {
 
 		if (GamingUtilityHelper.whoWon(tictac, 'X')) {
